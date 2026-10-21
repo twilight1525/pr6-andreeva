@@ -1,0 +1,10 @@
+100000;false;LOW;false|OK:STANDARD|базовый стандарт
+100000;true;LOW;false|OK:FAST_TRACK|срочная без персданных
+500039;true;LOW;false|OK:FAST_TRACK|ниже порога варианта 7
+500040;false;LOW;false|OK:FINANCE_REVIEW|граница включительно
+500041;true;LOW;false|OK:FINANCE_REVIEW|выше порога
+100000;false;HIGH;false|OK:DIRECTOR_REVIEW|риск HIGH
+100000;true;HIGH;false|OK:DIRECTOR_REVIEW|риск важнее срочности
+100000;true;LOW;true|OK:SECURITY_REVIEW|персданные важнее всего
+600000;true;HIGH;true|OK:SECURITY_REVIEW|персданные > сумма и риск
+-1;false;LOW;false|ERROR:отрицательной|отрицательная сумма

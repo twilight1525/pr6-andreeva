@@ -1,0 +1,36 @@
+digraph Activity {
+    rankdir=TB;
+    node [shape=box, style="rounded"];
+
+    start [shape=ellipse, label="Начало"];
+    n1 [shape=parallelogram, label="Получить параметры заявки\n(sum, urgent, risk, pd)"];
+    n2 [shape=diamond, label="Есть персональные данные?"];
+    n3 [label="Проверить risk == HIGH\n→ DIRECTOR_REVIEW"];
+    n4 [shape=diamond, label="Риск HIGH?"];
+    n5 [shape=diamond, label="Сумма >= 500040?"];
+    n6 [shape=diamond, label="Срочная заявка?"];
+    n7 [label="FAST_TRACK"];
+    n8 [label="STANDARD"];
+    n9 [label="FINANCE_REVIEW"];
+    n10 [label="DIRECTOR_REVIEW"];
+    n11 [label="SECURITY_REVIEW"];
+    n12 [label="Вернуть маршрут согласования"];
+    end [shape=ellipse, label="Завершение"];
+
+    start -> n1 -> n2;
+    n2 -> n11 [label="да"];
+    n2 -> n3 [label="нет"];
+    n3 -> n4;
+    n4 -> n10 [label="да"];
+    n4 -> n5 [label="нет"];
+    n5 -> n9 [label="да"];
+    n5 -> n6 [label="нет"];
+    n6 -> n7 [label="да"];
+    n6 -> n8 [label="нет"];
+    n7 -> n12;
+    n8 -> n12;
+    n9 -> n12;
+    n10 -> n12;
+    n11 -> n12;
+    n12 -> end;
+}

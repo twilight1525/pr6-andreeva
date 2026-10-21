@@ -1,0 +1,33 @@
+digraph ClassDiagram {
+    rankdir=TB;
+    node [shape=record];
+
+    ApprovalRouter [label="{ApprovalRouter|
+        - FINANCE_LIMIT : long\l
+        |
+        + route(long, boolean, RiskLevel, boolean) ApprovalRoute\l
+        + getFinanceLimit() long\l
+    }"];
+
+    ApprovalRoute [label="{ApprovalRoute|
+        STANDARD\l
+        FAST_TRACK\l
+        FINANCE_REVIEW\l
+        DIRECTOR_REVIEW\l
+        SECURITY_REVIEW\l
+    }"];
+
+    RiskLevel [label="{RiskLevel|
+        LOW\l
+        MEDIUM\l
+        HIGH\l
+    }"];
+
+    SelfCheck [label="{SelfCheck|
+        + main(String[]) void\l
+    }"];
+
+    ApprovalRouter -> ApprovalRoute [label="returns"];
+    ApprovalRouter -> RiskLevel [label="uses"];
+    SelfCheck -> ApprovalRouter [label="использует"];
+}
